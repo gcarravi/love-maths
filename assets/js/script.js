@@ -4,6 +4,10 @@
 // Wait for the DOM to finish loading before running the game.
 // Get the button elements and add event listeners to them
 
+let correctAnswer = 0;
+let wrongAnswer = 0;
+let score = 0;
+
 document.addEventListener("DOMContentLoaded", function(){
     let buttons = document.getElementsByTagName("button");
     
@@ -47,10 +51,12 @@ function checkAnswer(){
     let userAnswer = parseInt(document.getElementById("answer-box").value);
     let calculatedAnswer = calculateCorrectAnswer();
 
-    if(userAnswer === calculatedAnswer[0]){
+    if(userAnswer === calculatedAnswer[0]) {
         alert("You got it right! Que grande eres!!");
+        incrementScore();
     } else {
-        alert("You didnt get it right this time. You can keep trying you luck!")
+        alert(`Awwww..... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+        incrementWrongAnswer();
     }
 }
 
@@ -71,12 +77,22 @@ function calculateCorrectAnswer(){
     }
 }
 
-function incrementScore(){
-    
+/**
+ * Gets the current score from the DOM and increments it by 1
+ */
+function incrementScore() {
+    let correctAnswer = parseInt(document.getElementById('score').innerText);
+    correctAnswer++;
+    document.getElementById('score').textContent = correctAnswer;
 }
 
+/**
+ * Gets the current tally of incorrect answers from the DOM and increments it by 1
+ */
 function incrementWrongAnswer(){
-    
+    let wrongAnswer = parseInt(document.getElementById('incorrect').innerText);
+    wrongAnswer++;
+    document.getElementById('incorrect').textContent = wrongAnswer;
 }
 
 function displayAdditionQuestion(operand1, operand2){
