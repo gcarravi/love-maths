@@ -1,9 +1,8 @@
 // 1. Code to be executed when the page has finished loading
+// 2. Code to be executed when the user clicks a button.
 
 // Wait for the DOM to finish loading before running the game.
 // Get the button elements and add event listeners to them
-
-
 
 document.addEventListener("DOMContentLoaded", function(){
     let buttons = document.getElementsByTagName("button");
@@ -18,11 +17,6 @@ document.addEventListener("DOMContentLoaded", function(){
         })   
     }
 })
-
-
-// 2. Code to be executed when the user clicks a button.
-
-
 
 
 function runGame(){
