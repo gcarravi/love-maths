@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
  * and after the users answer ha been processed.
  */
 function runGame(gameType){
+
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
 
@@ -67,6 +68,8 @@ function checkAnswer(){
         alert(`Awwww..... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
         incrementWrongAnswer();
     }
+
+    runGame(calculatedAnswer[1]);
 }
 
 /**
